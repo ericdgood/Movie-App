@@ -44,24 +44,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String[] sandwiches = getResources().getStringArray(R.array.sandwich_names);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_list_item_1, sandwiches);
-
-        // Simplification: Using a ListView instead of a RecyclerView
-        ListView listView = findViewById(R.id.listview);
-        listView.setAdapter(adapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                launchDetailActivity(position);
-            }
-        });
-    }
-
-    private void launchDetailActivity(int position) {
-        Intent intent = new Intent(this, MovieDetails.class);
-        intent.putExtra(MovieDetails.EXTRA_POSITION, position);
-        startActivity(intent);
+//        String[] sandwiches = getResources().getStringArray(R.array.sandwich_names);
+//        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
+//                android.R.layout.simple_list_item_1, sandwiches);
+//
+//        // Simplification: Using a ListView instead of a RecyclerView
+//        ListView listView = findViewById(R.id.listview);
+//        listView.setAdapter(adapter);
+//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+//                launchDetailActivity(position);
+//            }
+//        });
+//    }
+//
+//    private void launchDetailActivity(int position) {
+//        Intent intent = new Intent(this, MovieDetails.class);
+//        intent.putExtra(MovieDetails.EXTRA_POSITION, position);
+//        startActivity(intent);
     }
 }

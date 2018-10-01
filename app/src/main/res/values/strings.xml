@@ -15,7 +15,7 @@
         <item>Vada Pav</item>
     </string-array>
 
-    <string-array name="movie_json">
+    <string name="movie_json">
         <item>
 {
       \"vote_count\": 1900,
@@ -61,7 +61,7 @@
       \"release_date\": \"2018-09-05\"
     }
         </item>
-    </string-array>
+    </string>
 
 
 

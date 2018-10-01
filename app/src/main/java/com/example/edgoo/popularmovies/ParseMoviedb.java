@@ -6,8 +6,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.reflect.Array;
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 import static android.content.ContentValues.TAG;
 
@@ -15,32 +15,25 @@ public class ParseMoviedb {
 
     private final static String TITLE = "title";
 
-    public static MoviesInfo parseMovieJson (String json){
+    public static String[] parseMovieJson(String jsonResponse) throws JSONException {
 
-        Log.d(TAG, "logtag: " + json);
+        String[] movieTitlesArray = null;
 
-        try {
-            JSONObject mainJsonObject = new JSONObject(json);
-            JSONArray earthquakeArray = mainJsonObject.getJSONArray("results");
+            JSONObject mainJsonObject = new JSONObject(jsonResponse);
+            JSONArray movieTitleArray = mainJsonObject.getJSONArray("results");
+        Log.d(TAG, "logtag parseMovieJson: " + movieTitleArray);
 
-            Log.d(TAG, "logtagobj: " + mainJsonObject);
+            for (int i = 0; i < movieTitleArray.length(); i++) {
+                JSONObject currentEarthquake = movieTitleArray.getJSONObject(i);
+                Log.d(TAG, "logtag currentMovie: " + currentEarthquake);
+                String title = currentEarthquake.getString("title");
+                Log.d(TAG, "logtag title: " + title);
 
-            for (int i = 0; i < earthquakeArray.length(); i++) {
-                JSONObject currentEarthquake = earthquakeArray.getJSONObject(i);
-                String titles = currentEarthquake.getString("place");
 
-                MoviesInfo titleList = new MoviesInfo(titles);
-
-                Log.d(TAG, "logtagtitleList: " + titleList);
+                movieTitlesArray[i] = title;
             }
 
-            String title = mainJsonObject.getString(TITLE);
 
-            return new MoviesInfo(title);
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-            return null;
-        }
+        return movieTitlesArray;
     }
 }
