@@ -24,9 +24,6 @@ public class MovieDetails extends AppCompatActivity {
     private TextView mMovieTitle;
     private MovieAdapter mAdapter;
 
-//    public static final String EXTRA_POSITION = "extra_position";
-//    private static final int DEFAULT_POSITION = -1;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,10 +42,10 @@ public class MovieDetails extends AppCompatActivity {
             URL movieUrl = FetchJson.createUrl(MOVIEDB_URL);
 
             try {
+                assert movieUrl != null;
                 String jsonresponse = FetchJson.getResponseFromHttpUrl(movieUrl);
 
                 String[] movieTitles = ParseMoviedb.parseMovieJson(jsonresponse);
-
                 return movieTitles;
 
             } catch (JSONException e) {
@@ -58,6 +55,7 @@ public class MovieDetails extends AppCompatActivity {
             }
             return null;
         }
+
         @Override
         protected void onPostExecute(String[] weatherData) {
             if (weatherData != null) {
