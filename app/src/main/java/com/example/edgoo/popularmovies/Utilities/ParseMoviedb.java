@@ -32,10 +32,11 @@ public class ParseMoviedb {
 //                CREATES A CURRENT MOVIE OBJECT
             JSONObject currentMovie = movieTitleArray.getJSONObject(i);
 //                USED TO GET TITLE OF MOVIE
-            String title = currentMovie.getString("title");
+            String poster_path = currentMovie.getString("poster_path");
+            String poster = "http://image.tmdb.org/t/p/w185/" + poster_path;
 
 
-            parsedMovieArray[i] = title;
+            parsedMovieArray[i] = poster;
         }
         return parsedMovieArray;
     }
