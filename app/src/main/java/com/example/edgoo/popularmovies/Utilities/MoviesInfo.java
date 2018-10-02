@@ -1,4 +1,4 @@
-package com.example.edgoo.popularmovies;
+package com.example.edgoo.popularmovies.Utilities;
 
 public class MoviesInfo {
 

@@ -1,25 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
-    <ListView
-        android:id="@+id/listview"
+    <!--COMPLETED (2) Replace ScrollView and TextView with RecyclerView-->
+    <!--COMPLETED (3) Give the RecyclerView an id of @+id/recyclerview_forecast-->
+    <!--COMPLETED (4) Set the width and the height of the RecyclerView to match_parent-->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-
-    <!--<android.support.v7.widget.RecyclerView-->
-        <!--android:id="@+id/recycler_view"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"/>-->
+        android:layout_height="match_parent"/>
 
     <!--<TextView-->
         <!--android:id="@+id/tv_error_message_display"-->
-        <!--android:layout_width="match_parent"-->
+        <!--android:layout_width="wrap_content"-->
         <!--android:layout_height="wrap_content"-->
         <!--android:padding="16dp"-->
         <!--android:text="@string/error_message"-->
@@ -27,7 +21,7 @@
         <!--android:visibility="invisible" />-->
 
     <!--<ProgressBar-->
-        <!--android:id="@+id/loading_indicator"-->
+        <!--android:id="@+id/pb_loading_indicator"-->
         <!--android:layout_height="42dp"-->
         <!--android:layout_width="42dp"-->
         <!--android:layout_gravity="center"-->

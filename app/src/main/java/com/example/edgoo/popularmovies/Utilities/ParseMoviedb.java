@@ -1,5 +1,6 @@
-package com.example.edgoo.popularmovies;
+package com.example.edgoo.popularmovies.Utilities;
 
+import android.content.Context;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -14,7 +15,7 @@ import static android.content.ContentValues.TAG;
 
 public class ParseMoviedb {
 
-    public static String[] parseMovieJson(String jsonResponse) throws JSONException {
+    public static String[] parseMovieJson(Context context, String jsonResponse) throws JSONException {
 
         String[] parsedMovieArray;
 
