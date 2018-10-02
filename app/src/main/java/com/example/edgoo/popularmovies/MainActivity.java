@@ -84,8 +84,10 @@ public class MainActivity extends AppCompatActivity {
 
             try {
                 assert movieUrl != null;
+//                BUILDS MOVIEDB URL INTO STRING URL
                 String jsonresponse = FetchJson.getResponseFromHttpUrl(movieUrl);
 
+//                PARES MOVIEDB URL
                 String[] movieTitles = ParseMoviedb.parseMovieJson(MainActivity.this, jsonresponse);
 
                 return movieTitles;

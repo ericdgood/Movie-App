@@ -23,7 +23,6 @@ class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
     MovieAdapter() {
     }
 
-
     @NonNull
     @Override
     public MovieAdapter.MovieViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
@@ -36,10 +35,10 @@ class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
         return new MovieViewHolder(view);
     }
 
+    //          SETS ITEMS WITH VIEWHOLDER
     @Override
     public void onBindViewHolder(MovieViewHolder viewHolder, int position) {
-        String oneMovie = movies[position];
-        viewHolder.movieTitle.setText(oneMovie);
+        viewHolder.movieTitle.setText(movies[position]);
     }
 
     @Override
@@ -48,11 +47,7 @@ class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
         return movies.length;
     }
 
-    public void setMovieData(String[] movieData) {
-        this.movies = movieData;
-        notifyDataSetChanged();
-    }
-
+    //      GETS AND HOLDS VIEWS
     class MovieViewHolder extends RecyclerView.ViewHolder {
         TextView movieTitle;
 
@@ -60,5 +55,11 @@ class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
             super(view);
             movieTitle = view.findViewById(R.id.movie_title);
         }
+    }
+
+    //    SETS MOVIE TITLES
+    public void setMovieData(String[] movieData) {
+        this.movies = movieData;
+        notifyDataSetChanged();
     }
 }
