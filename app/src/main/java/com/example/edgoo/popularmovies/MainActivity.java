@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         LinearLayoutManager layoutManager
                 = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         mRecyclerView.setLayoutManager(layoutManager);
-        mMovieAdapter = new MovieAdapter();
+        mMovieAdapter = new MovieAdapter(this);
         mRecyclerView.setAdapter(mMovieAdapter);
         loadMovieData();
     }

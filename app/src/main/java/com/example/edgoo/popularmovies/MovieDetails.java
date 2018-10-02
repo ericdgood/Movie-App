@@ -1,8 +1,10 @@
 package com.example.edgoo.popularmovies;
 
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.edgoo.popularmovies.Utilities.FetchJson;
@@ -20,6 +22,19 @@ public class MovieDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.movie_detail);
 
+        getIncomingIntent();
+    }
 
+    private void getIncomingIntent(){
+
+        String movieTitle = getIntent().getStringExtra("movie_title");
+
+        setItemInfo(movieTitle);
+    }
+
+    private void setItemInfo(String movieTitle){
+
+        TextView name = findViewById(R.id.movie_detail_name);
+        name.setText(movieTitle);
     }
 }
