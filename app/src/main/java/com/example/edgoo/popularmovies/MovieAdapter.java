@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -46,7 +45,7 @@ class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
     @Override
     public void onBindViewHolder(MovieViewHolder viewHolder, int position) {
 //        viewHolder.movieTitle.setText(movies[position]);
-        Picasso.with(mContext).load(movies[position]).into(viewHolder.moviePosterView);
+        Picasso.with(mContext).load(movies[position]).into(viewHolder.movieTitle);
 
         viewHolder.movieList.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,15 +66,13 @@ class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
 
     //      GETS AND HOLDS VIEWS
     class MovieViewHolder extends RecyclerView.ViewHolder {
-//        TextView movieTitle;
-        GridLayout movieList;
-        ImageView moviePosterView;
+        ImageView movieTitle;
+        LinearLayout movieList;
 
         public MovieViewHolder(View view) {
             super(view);
-//            movieTitle = view.findViewById(R.id.movie_title);
+            movieTitle = view.findViewById(R.id.movie_title);
             movieList = view.findViewById(R.id.movie_list);
-            moviePosterView = view.findViewById(R.id.movie_poster_view);
         }
     }
 
