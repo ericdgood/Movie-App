@@ -49,7 +49,8 @@ import static android.content.ContentValues.TAG;
 public class MainActivity extends AppCompatActivity {
 
     private static final String MOVIEDB_URL =
-            "https://api.themoviedb.org/3/discover/movie?page=1&include_video=false&include_adult=false&sort_by=popularity.desc&language=en-US&api_key=d32cc5bd24233a690a9c9c367d00111c";
+            "https://api.themoviedb.org/3/movie/top_rated?api_key=d32cc5bd24233a690a9c9c367d00111c&language=en-US&page=1";
+//            "https://api.themoviedb.org/3/discover/movie?page=1&include_video=false&include_adult=false&sort_by=popularity.desc&language=en-US&api_key=d32cc5bd24233a690a9c9c367d00111c";
 
     private RecyclerView mRecyclerView;
     private MovieAdapter mMovieAdapter;
@@ -63,11 +64,11 @@ public class MainActivity extends AppCompatActivity {
 
 //        RECYCLER VIEW SETTER WITH ADAPTER
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview);
-        LinearLayoutManager layoutManager
-                = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
-        mRecyclerView.setLayoutManager(layoutManager);
-//        int numberOfColumns = 3;
-//        mRecyclerView.setLayoutManager(new GridLayoutManager(this, numberOfColumns));
+//        LinearLayoutManager layoutManager
+//                = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
+//        mRecyclerView.setLayoutManager(layoutManager);
+        int numberOfColumns = 2;
+        mRecyclerView.setLayoutManager(new GridLayoutManager(this, numberOfColumns));
         mMovieAdapter = new MovieAdapter(this);
         mRecyclerView.setAdapter(mMovieAdapter);
         loadMovieData();
