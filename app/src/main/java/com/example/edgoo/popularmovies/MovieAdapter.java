@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -20,7 +21,7 @@ import java.util.List;
 
 import static android.content.ContentValues.TAG;
 
-class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
+class MovieAdapter extends BaseAdapter {
 
     private MoviesInfo[] mMovies;
     private Context mContext;
@@ -30,52 +31,43 @@ class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
         mMovies = movies;
     }
 
-    @NonNull
     @Override
-    public MovieAdapter.MovieViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-        Context context = viewGroup.getContext();
-        int layoutIdForListItem = R.layout.movie_grid;
-        LayoutInflater inflater = LayoutInflater.from(context);
-        boolean shouldAttachToParentImmediately = false;
-
-        View view = inflater.inflate(layoutIdForListItem, viewGroup, shouldAttachToParentImmediately);
-        return new MovieViewHolder(view);
-    }
-
-    //          SETS ITEMS WITH VIEWHOLDER
-    @Override
-    public void onBindViewHolder(MovieViewHolder viewHolder, int position) {
-        Picasso.with(mContext).load(mMovies[position].getPoster()).into(viewHolder.movieTitle);
-
-
-        viewHolder.movieList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent intent = new Intent(mContext, MovieDetails.class);
-                intent.putExtra("movie_title", mMovies[position].getTitle());
-                intent.putExtra("overview", mMovies[position].getOverview());
-                mContext.startActivity(intent);
-            }
-        });
-    }
-
-    @Override
-    public int getItemCount() {
+    public int getCount() {
         if (null == mMovies) return 0;
         return mMovies.length;
     }
 
-    //      GETS AND HOLDS VIEWS
-    class MovieViewHolder extends RecyclerView.ViewHolder {
-        ImageView movieTitle;
-        LinearLayout movieList;
-
-        public MovieViewHolder(View view) {
-            super(view);
-            movieTitle = view.findViewById(R.id.movie_title);
-            movieList = view.findViewById(R.id.movie_list);
+    @Override
+    public Object getItem(int position) {
+        if (mMovies == null || mMovies.length == 0) {
+            return null;
         }
+
+        return mMovies[position];
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return 0;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        ImageView movieTitle;
+
+        // Will be null if it's not recycled. Will initialize ImageView if new.
+        if (convertView == null) {
+            movieTitle = new ImageView(mContext);
+            movieTitle.setAdjustViewBounds(true);
+        } else {
+            movieTitle = (ImageView) convertView;
+        }
+
+        Picasso.with(mContext)
+                .load(mMovies[position].getPoster())
+                .into(movieTitle);
+
+        return movieTitle;
     }
 
     //    SETS MOVIE TITLES
@@ -84,3 +76,4 @@ class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
         notifyDataSetChanged();
     }
 }
+
