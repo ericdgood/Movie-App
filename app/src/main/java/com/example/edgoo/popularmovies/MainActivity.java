@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView mRecyclerView;
     private MovieAdapter mMovieAdapter;
-    String[] movies;
+    MoviesInfo[] mMovies;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,12 +69,12 @@ public class MainActivity extends AppCompatActivity {
 //        mRecyclerView.setLayoutManager(layoutManager);
         int numberOfColumns = 2;
         mRecyclerView.setLayoutManager(new GridLayoutManager(this, numberOfColumns));
-        mMovieAdapter = new MovieAdapter(this);
+        mMovieAdapter = new MovieAdapter(this, mMovies);
         mRecyclerView.setAdapter(mMovieAdapter);
         loadMovieData();
     }
 
-    public class FetchMovieTask extends AsyncTask<String, Void, String[]> {
+    public class FetchMovieTask extends AsyncTask<String, Void, MoviesInfo[]> {
 
         @Override
         protected void onPreExecute() {
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
-        protected String[] doInBackground(String... strings) {
+        protected MoviesInfo[] doInBackground(String... strings) {
 
             URL movieUrl = FetchJson.createUrl(MOVIEDB_URL);
 
@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
                 String jsonresponse = FetchJson.getResponseFromHttpUrl(movieUrl);
 
 //                PARES MOVIEDB URL
-                String[] movieTitles = ParseMoviedb.parseMovieJson(MainActivity.this, jsonresponse);
+                MoviesInfo[] movieTitles = ParseMoviedb.parseMovieJson(MainActivity.this, jsonresponse);
 
                 return movieTitles;
 
@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
-        protected void onPostExecute(String[] movieData) {
+        protected void onPostExecute(MoviesInfo[] movieData) {
             mMovieAdapter.setMovieData(movieData);
         }
     }

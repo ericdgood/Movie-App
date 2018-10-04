@@ -28,13 +28,16 @@ public class MovieDetails extends AppCompatActivity {
     private void getIncomingIntent(){
 
         String movieTitle = getIntent().getStringExtra("movie_title");
+        String overview = getIntent().getStringExtra("overview");
 
-        setItemInfo(movieTitle);
+        setItemInfo(movieTitle, overview);
     }
 
-    private void setItemInfo(String movieTitle){
+    private void setItemInfo(String movieTitle, String overview){
 
-        TextView name = findViewById(R.id.movie_detail_name);
-        name.setText(movieTitle);
+        TextView title = findViewById(R.id.movie_detail_name);
+        title.setText(movieTitle);
+        TextView overviewView = findViewById(R.id.overview);
+        overviewView.setText(overview);
     }
 }

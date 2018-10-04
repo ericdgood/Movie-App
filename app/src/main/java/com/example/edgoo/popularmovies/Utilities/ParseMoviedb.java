@@ -15,30 +15,36 @@ import static android.content.ContentValues.TAG;
 
 public class ParseMoviedb {
 
-    public static String[] parseMovieJson(Context context, String jsonResponse) throws JSONException {
-
-        String[] parsedMovieArray;
+    public static MoviesInfo[] parseMovieJson(Context context, String jsonResponse) throws JSONException {
 
 //          CREATES JSON OBJECT WITH JSON STRING
         JSONObject mainJsonObject = new JSONObject(jsonResponse);
 //        GETS ARRAY OF MOVIE FROM RESULTS
         JSONArray movieTitleArray = mainJsonObject.getJSONArray("results");
 //        ARRAY OF PARSED MOVIE INFO
-        parsedMovieArray = new String[movieTitleArray.length()];
+        MoviesInfo[] movie = new MoviesInfo[movieTitleArray.length()];
 
 
 //                 LOOPS THROUGH EACH MOVE ARRAY RESULT
         for (int i = 0; i < movieTitleArray.length(); i++) {
+
+            movie[i] = new MoviesInfo();
+
 //                CREATES A CURRENT MOVIE OBJECT
             JSONObject currentMovie = movieTitleArray.getJSONObject(i);
 //                USED TO GET TITLE OF MOVIE
             String poster_path = currentMovie.getString("poster_path");
             String poster = "http://image.tmdb.org/t/p/w780/" + poster_path;
 
+            movie[i].setPoster(poster);
 
-            parsedMovieArray[i] = poster;
+            movie[i].setTitle(currentMovie.getString("title"));
+            movie[i].setOverview(currentMovie.getString("overview"));
+
+
+
         }
-        return parsedMovieArray;
+        return movie;
     }
 
 //    EXAMPLE OF A MOVIE ARRAY

@@ -22,11 +22,12 @@ import static android.content.ContentValues.TAG;
 
 class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
 
-    private String[] movies;
+    private MoviesInfo[] mMovies;
     private Context mContext;
 
-    MovieAdapter(Context context) {
+    MovieAdapter(Context context, MoviesInfo[] movies) {
         mContext = context;
+        mMovies = movies;
     }
 
     @NonNull
@@ -44,15 +45,16 @@ class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
     //          SETS ITEMS WITH VIEWHOLDER
     @Override
     public void onBindViewHolder(MovieViewHolder viewHolder, int position) {
-//        viewHolder.movieTitle.setText(movies[position]);
-        Picasso.with(mContext).load(movies[position]).into(viewHolder.movieTitle);
+        Picasso.with(mContext).load(mMovies[position].getPoster()).into(viewHolder.movieTitle);
+
 
         viewHolder.movieList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 Intent intent = new Intent(mContext, MovieDetails.class);
-                intent.putExtra("movie_title", movies[position]);
+                intent.putExtra("movie_title", mMovies[position].getTitle());
+                intent.putExtra("overview", mMovies[position].getOverview());
                 mContext.startActivity(intent);
             }
         });
@@ -60,8 +62,8 @@ class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
 
     @Override
     public int getItemCount() {
-        if (null == movies) return 0;
-        return movies.length;
+        if (null == mMovies) return 0;
+        return mMovies.length;
     }
 
     //      GETS AND HOLDS VIEWS
@@ -77,8 +79,8 @@ class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHolder> {
     }
 
     //    SETS MOVIE TITLES
-    public void setMovieData(String[] movieData) {
-        this.movies = movieData;
+    public void setMovieData(MoviesInfo[] movieData) {
+        this.mMovies = movieData;
         notifyDataSetChanged();
     }
 }

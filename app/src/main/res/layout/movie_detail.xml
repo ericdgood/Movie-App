@@ -2,12 +2,29 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 <TextView
     android:id="@+id/movie_detail_name"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:textSize="36sp"/>
+    android:textSize="36sp"
+    android:gravity="center"
+    tools:text="ccdcwdwc"
+    android:paddingBottom="10dp"/>
+
+    <TextView
+        android:id="@+id/overview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="21sp"
+        tools:text="Tetsedhkecdxdecdcwdcwd" />
+
+    </LinearLayout>
 
 </ScrollView>
