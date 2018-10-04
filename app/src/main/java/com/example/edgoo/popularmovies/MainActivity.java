@@ -14,10 +14,6 @@ import com.example.edgoo.popularmovies.Utilities.MoviesInfo;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String MOVIEDB_URL =
-//            "https://api.themoviedb.org/3/movie/top_rated?api_key=d32cc5bd24233a690a9c9c367d00111c&language=en-US&page=1";
-            "https://api.themoviedb.org/3/discover/movie?page=1&include_video=false&include_adult=false&sort_by=popularity.desc&language=en-US&api_key=d32cc5bd24233a690a9c9c367d00111c";
-
     private GridView mGridView;
     private MovieAdapter mMovieAdapter;
     MoviesInfo[] mMovies;
@@ -48,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     };
 
     private void loadMovieData() {
-        new FetchMovieData(MOVIEDB_URL, mMovieAdapter).execute();
+        new FetchMovieData(mMovieAdapter).execute();
     }
 
     @Override
@@ -65,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             // Respond to a click on the "Insert dummy data" menu option
             case R.id.sort_top_rate:
-//                insertBook();
+//                getU
                 return true;
             // Respond to a click on the "Delete all entries" menu option
             case R.id.sort_popular:
