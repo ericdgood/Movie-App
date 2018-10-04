@@ -39,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(), MovieDetails.class);
             intent.putExtra("movie_title", movie.getTitle());
             intent.putExtra("overview", movie.getOverview());
+            intent.putExtra("release", movie.getReleaseDate());
+            intent.putExtra("vote", movie.getVoteAverage());
 
             startActivity(intent);
         }

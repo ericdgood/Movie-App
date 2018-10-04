@@ -1,29 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-<TextView
-    android:id="@+id/movie_detail_name"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:textSize="36sp"
-    android:gravity="center"
-    tools:text="ccdcwdwc"
-    android:paddingBottom="10dp"/>
 
-    <TextView
-        android:id="@+id/overview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="21sp"
-        tools:text="Tetsedhkecdxdecdcwdcwd" />
+        <TextView
+            android:id="@+id/movie_detail_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingBottom="10dp"
+            android:textSize="36sp"
+            tools:text="ccdcwdwc" />
+
+        <TextView
+            android:id="@+id/release"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="21sp"
+            tools:text="Tetsedhkecdxdecdcwdcwd" />
+
+        <TextView
+            android:id="@+id/vote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="21sp"
+            tools:text="Tetsedhkecdxdecdcwdcwd" />
+
+        <TextView
+            android:id="@+id/overview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="21sp"
+            tools:text="Tetsedhkecdxdecdcwdcwd" />
 
     </LinearLayout>
 

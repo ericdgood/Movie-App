@@ -1,10 +1,16 @@
 package com.example.edgoo.popularmovies.Utilities;
 
+import android.util.Log;
+
 import com.example.edgoo.popularmovies.MainActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.Arrays;
+
+import static android.content.ContentValues.TAG;
 
 public class ParseMoviedb {
 
@@ -36,6 +42,11 @@ public class ParseMoviedb {
 //            GETS OVERVIEW OF MOVIE
             movie[i].setOverview(currentMovie.getString("overview"));
 
+//            GET RELEASE DATE
+            movie[i].setReleaseDate(currentMovie.getString("release_date"));
+
+//            GET VOTE AVERAGE
+            movie[i].setVoteAverage(currentMovie.getString("vote_average"));
         }
         return movie;
     }

@@ -7,11 +7,15 @@ public class MoviesInfo implements Parcelable {
 
     private String title;
     private String poster;
+    private String releaseDate;
+    private String voteAverage;
 
     private MoviesInfo(Parcel in) {
         title = in.readString();
         poster = in.readString();
         overview = in.readString();
+        releaseDate = in.readString();
+        voteAverage = in.readString();
     }
 
     @Override
@@ -19,6 +23,8 @@ public class MoviesInfo implements Parcelable {
         dest.writeString(title);
         dest.writeString(poster);
         dest.writeString(overview);
+        dest.writeString(releaseDate);
+        dest.writeString(voteAverage);
     }
 
     public String getOverview() {
@@ -66,4 +72,21 @@ public class MoviesInfo implements Parcelable {
             return new MoviesInfo[size];
         }
     };
+
+
+    public String getReleaseDate() {
+        return releaseDate;
+    }
+
+    public void setReleaseDate(String releaseDate) {
+        this.releaseDate = releaseDate;
+    }
+
+    public String getVoteAverage() {
+        return voteAverage;
+    }
+
+    public void setVoteAverage(String voteAverage) {
+        this.voteAverage = voteAverage;
+    }
 }
