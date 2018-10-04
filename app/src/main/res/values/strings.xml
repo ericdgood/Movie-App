@@ -62,7 +62,8 @@
     }
         </item>
     </string>
-
+    <string name="sort_by_popular_movie">Sort by Popular Movie</string>
+    <string name="sort_by_top_rated_movies">Sort by Top Rated Movies</string>
 
 
 </resources>

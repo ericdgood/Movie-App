@@ -3,6 +3,8 @@ package com.example.edgoo.popularmovies;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
@@ -47,6 +49,30 @@ public class MainActivity extends AppCompatActivity {
 
     private void loadMovieData() {
         new FetchMovieData(MOVIEDB_URL, mMovieAdapter).execute();
+    }
+
+    @Override
+    // This method initialize the contents of the Activity's options menu.
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the Options Menu we specified in XML
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // User clicked on a menu option in the app bar overflow menu
+        switch (item.getItemId()) {
+            // Respond to a click on the "Insert dummy data" menu option
+            case R.id.sort_top_rate:
+//                insertBook();
+                return true;
+            // Respond to a click on the "Delete all entries" menu option
+            case R.id.sort_popular:
+//                deleteAllBooks();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
 
