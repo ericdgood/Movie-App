@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private GridView mGridView;
     private MovieAdapter mMovieAdapter;
     MoviesInfo[] mMovies;
+    private String mParm = "popularity.desc";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     };
 
     private void loadMovieData() {
-        new FetchMovieData(mMovieAdapter).execute();
+        new FetchMovieData(mMovieAdapter, mParm).execute();
     }
 
     @Override
@@ -61,11 +62,13 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             // Respond to a click on the "Insert dummy data" menu option
             case R.id.sort_top_rate:
-//                getU
+                mParm = "vote_average.asc";
+                loadMovieData();
                 return true;
             // Respond to a click on the "Delete all entries" menu option
             case R.id.sort_popular:
-//                deleteAllBooks();
+                mParm = "popularity.desc";
+                loadMovieData();
                 return true;
         }
         return super.onOptionsItemSelected(item);
