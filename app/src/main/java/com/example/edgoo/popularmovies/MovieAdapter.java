@@ -21,7 +21,7 @@ import java.util.List;
 
 import static android.content.ContentValues.TAG;
 
-class MovieAdapter extends BaseAdapter {
+public class MovieAdapter extends BaseAdapter {
 
     private MoviesInfo[] mMovies;
     private Context mContext;

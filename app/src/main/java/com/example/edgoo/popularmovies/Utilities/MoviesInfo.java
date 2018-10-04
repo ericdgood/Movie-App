@@ -3,10 +3,23 @@ package com.example.edgoo.popularmovies.Utilities;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class MoviesInfo implements Parcelable{
+public class MoviesInfo implements Parcelable {
 
     private String title;
     private String poster;
+
+    private MoviesInfo(Parcel in) {
+        title = in.readString();
+        poster = in.readString();
+        overview = in.readString();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(title);
+        dest.writeString(poster);
+        dest.writeString(overview);
+    }
 
     public String getOverview() {
         return overview;
@@ -34,21 +47,7 @@ public class MoviesInfo implements Parcelable{
         this.title = title;
     }
 
-    public MoviesInfo(){
-
-    }
-
-    protected MoviesInfo(Parcel in) {
-        title = in.readString();
-        poster = in.readString();
-        overview = in.readString();
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(title);
-        dest.writeString(poster);
-        dest.writeString(overview);
+    MoviesInfo() {
     }
 
     @Override

@@ -1,21 +1,14 @@
 package com.example.edgoo.popularmovies.Utilities;
 
-import android.content.Context;
-import android.util.Log;
+import com.example.edgoo.popularmovies.MainActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import static android.content.ContentValues.TAG;
-
 public class ParseMoviedb {
 
-    public static MoviesInfo[] parseMovieJson(Context context, String jsonResponse) throws JSONException {
+    public static MoviesInfo[] parseMovieJson(Class<MainActivity> context, String jsonResponse) throws JSONException {
 
 //          CREATES JSON OBJECT WITH JSON STRING
         JSONObject mainJsonObject = new JSONObject(jsonResponse);
@@ -32,16 +25,16 @@ public class ParseMoviedb {
 
 //                CREATES A CURRENT MOVIE OBJECT
             JSONObject currentMovie = movieTitleArray.getJSONObject(i);
-//                USED TO GET TITLE OF MOVIE
+//                USED TO GET POSTER OF MOVIE
             String poster_path = currentMovie.getString("poster_path");
             String poster = "http://image.tmdb.org/t/p/w780/" + poster_path;
-
             movie[i].setPoster(poster);
 
+//            GETS TITLE OF MOVIE
             movie[i].setTitle(currentMovie.getString("title"));
+
+//            GETS OVERVIEW OF MOVIE
             movie[i].setOverview(currentMovie.getString("overview"));
-
-
 
         }
         return movie;
