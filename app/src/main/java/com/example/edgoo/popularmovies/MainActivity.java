@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private GridView mGridView;
     private MovieAdapter mMovieAdapter;
     MoviesInfo[] mMovies;
-    private String mParm = "popularity.desc";
+    private String mParm = "popular";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

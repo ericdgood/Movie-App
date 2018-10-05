@@ -62,16 +62,16 @@ public class FetchMovieData extends AsyncTask<String, Void, MoviesInfo[]> {
     private URL getApiUrl(String mParm) throws MalformedURLException {
 
 //        final String API_KEY_PARAM = "api_key";
+//        https://api.themoviedb.org/3/movie/popular?api_key=d32cc5bd24233a690a9c9c367d00111c&language=en-US&page=1
+//        https://api.themoviedb.org/3/movie/top_rated?api_key=d32cc5bd24233a690a9c9c367d00111c&language=en-US&page=1
 
-            final String MOVIEDB_URL = "https://api.themoviedb.org/3/discover/movie?";
+            final String MOVIEDB_URL = "https://api.themoviedb.org/3/movie/" + mParm;
         Uri baseUri = Uri.parse(MOVIEDB_URL);
         Uri.Builder uriBuilder = baseUri.buildUpon();
-        uriBuilder.appendQueryParameter("page", "1");
-        uriBuilder.appendQueryParameter("include_video", "false");
-        uriBuilder.appendQueryParameter("include_adult", "false");
-        uriBuilder.appendQueryParameter("sort_by", mParm);
-        uriBuilder.appendQueryParameter("language", "en-US");
         uriBuilder.appendQueryParameter("api_key", "d32cc5bd24233a690a9c9c367d00111c");
+        uriBuilder.appendQueryParameter("language", "en-US");
+        uriBuilder.appendQueryParameter("page", "1");
+        Log.d(TAG, "logtag: " + uriBuilder);
 
         return new URL(uriBuilder.toString());
     }

@@ -69,8 +69,8 @@
     <string name="movieposter">moviePoster</string>
     <string name="title_popular">Movies by Popularity</string>
     <string name="title_ratings">Movies by Top Ratings</string>
-    <string name="ratings_parm">vote_average.asc</string>
-    <string name="popular_parm">popularity.desc</string>
+    <string name="ratings_parm">top_rated</string>
+    <string name="popular_parm">popular</string>
 
 
 </resources>
