@@ -33,8 +33,12 @@ public class ParseMoviedb {
             JSONObject currentMovie = movieTitleArray.getJSONObject(i);
 //                USED TO GET POSTER OF MOVIE
             String poster_path = currentMovie.getString("poster_path");
-            String poster = "http://image.tmdb.org/t/p/w780/" + poster_path;
+            String poster = "http://image.tmdb.org/t/p/w185/" + poster_path;
             movie[i].setPoster(poster);
+
+            String detail_poster_path = currentMovie.getString("poster_path");
+            String detail_poster = "http://image.tmdb.org/t/p/w500/" + detail_poster_path;
+            movie[i].setDetailMoviePoster(detail_poster);
 
 //            GETS TITLE OF MOVIE
             movie[i].setTitle(currentMovie.getString("title"));

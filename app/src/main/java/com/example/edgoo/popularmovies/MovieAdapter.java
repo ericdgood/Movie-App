@@ -55,14 +55,12 @@ public class MovieAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ImageView movieTitle;
 
-        // Will be null if it's not recycled. Will initialize ImageView if new.
         if (convertView == null) {
             movieTitle = new ImageView(mContext);
             movieTitle.setAdjustViewBounds(true);
         } else {
             movieTitle = (ImageView) convertView;
         }
-
         Picasso.with(mContext)
                 .load(mMovies[position].getPoster())
                 .into(movieTitle);

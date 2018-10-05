@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         mGridView.setOnItemClickListener(moviePosterClickListener);
         mMovieAdapter = new MovieAdapter(this, mMovies);
         mGridView.setAdapter(mMovieAdapter);
+        setMyTitle(0);
         loadMovieData();
     }
 
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra("overview", movie.getOverview());
             intent.putExtra("release", movie.getReleaseDate());
             intent.putExtra("vote", movie.getVoteAverage());
+            intent.putExtra("poster", movie.getDetailMoviePoster());
 
             startActivity(intent);
         }
@@ -58,18 +60,26 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    private void setMyTitle(Integer setTitleTo){
+        if(setTitleTo == 1){
+            setTitle(getString(R.string.title_ratings));
+        } else {
+            setTitle(getString(R.string.title_popular));
+        }
+
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // User clicked on a menu option in the app bar overflow menu
         switch (item.getItemId()) {
-            // Respond to a click on the "Insert dummy data" menu option
             case R.id.sort_top_rate:
-                mParm = "vote_average.asc";
+                mParm = getString(R.string.ratings_parm);
+                setMyTitle(1);
                 loadMovieData();
                 return true;
-            // Respond to a click on the "Delete all entries" menu option
             case R.id.sort_popular:
-                mParm = "popularity.desc";
+                mParm = getString(R.string.popular_parm);
+                setMyTitle(0);
                 loadMovieData();
                 return true;
         }

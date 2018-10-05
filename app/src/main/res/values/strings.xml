@@ -64,6 +64,13 @@
     </string>
     <string name="sort_by_popular_movie">Sort by Popular Movie</string>
     <string name="sort_by_top_rated_movies">Sort by Top Rated Movies</string>
+    <string name="rating">Rating:</string>
+    <string name="release">Release Date:</string>
+    <string name="movieposter">moviePoster</string>
+    <string name="title_popular">Movies by Popularity</string>
+    <string name="title_ratings">Movies by Top Ratings</string>
+    <string name="ratings_parm">vote_average.asc</string>
+    <string name="popular_parm">popularity.desc</string>
 
 
 </resources>

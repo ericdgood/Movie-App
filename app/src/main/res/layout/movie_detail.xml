@@ -2,7 +2,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,32 +13,80 @@
         <TextView
             android:id="@+id/movie_detail_name"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:paddingBottom="10dp"
-            android:textSize="36sp"
-            tools:text="ccdcwdwc" />
+            android:layout_height="135dp"
+            android:background="@color/colorAccent"
+            android:gravity="center_vertical"
+            android:paddingLeft="30dp"
+            android:textColor="@color/white_text"
+            android:textSize="36dp"
+            tools:text="Chappie" />
 
-        <TextView
-            android:id="@+id/release"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="21sp"
-            tools:text="Tetsedhkecdxdecdcwdcwd" />
+            android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/vote"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="21sp"
-            tools:text="Tetsedhkecdxdecdcwdcwd" />
+            <ImageView
+                android:id="@+id/poster_detail_view"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                tools:src="@tools:sample/avatars"
+                android:layout_weight="1"
+                android:paddingLeft="25dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:contentDescription="@string/movieposter" />
 
-        <TextView
-            android:id="@+id/overview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="21sp"
-            tools:text="Tetsedhkecdxdecdcwdcwd" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center_vertical"
+                android:paddingLeft="25dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/release"
+                    android:textSize="12sp"
+                    android:textStyle="bold"/>
+
+
+                <TextView
+                    android:id="@+id/release"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="21sp"
+                    tools:text="2-3-2018" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rating"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:paddingTop="5dp"/>
+
+                <TextView
+                    android:id="@+id/vote"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="26sp"
+                    tools:text="6.9" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+            <TextView
+                android:id="@+id/overview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_marginRight="15dp"
+                android:layout_marginLeft="15dp"
+                tools:text="Tetsedhkecdxdecdcwdcdcdcwdcdddddwdcddcdwcwdcwcwdcwcwwcw" />
+
 
     </LinearLayout>
 
