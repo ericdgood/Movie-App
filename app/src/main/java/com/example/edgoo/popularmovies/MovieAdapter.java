@@ -56,7 +56,7 @@ public class MovieAdapter extends BaseAdapter {
         return movieTitle;
     }
 
-    //    SETS MOVIE TITLES
+    //    SETS MOVIE POSTERS
     public void setMovieData(MoviesInfo[] movieData) {
         this.mMovies = movieData;
         notifyDataSetChanged();
