@@ -1,27 +1,16 @@
 package com.example.edgoo.popularmovies;
 
 import android.content.Context;
-import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.edgoo.popularmovies.Utilities.FetchJson;
-import com.example.edgoo.popularmovies.Utilities.ParseMoviedb;
 import com.squareup.picasso.Picasso;
-
-import org.json.JSONException;
-
-import java.io.IOException;
-import java.net.URL;
 
 public class MovieDetails extends AppCompatActivity {
 
     private Context mContext;
-    private String TAG;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

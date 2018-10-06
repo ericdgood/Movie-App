@@ -1,30 +1,18 @@
 package com.example.edgoo.popularmovies;
 
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Movie;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.example.edgoo.popularmovies.Utilities.MoviesInfo;
 import com.squareup.picasso.Picasso;
 
-import java.util.List;
-
-import static android.content.ContentValues.TAG;
-
 public class MovieAdapter extends BaseAdapter {
 
     private MoviesInfo[] mMovies;
-    private Context mContext;
+    private final Context mContext;
 
     MovieAdapter(Context context, MoviesInfo[] movies) {
         mContext = context;

@@ -14,17 +14,16 @@ import com.example.edgoo.popularmovies.Utilities.MoviesInfo;
 
 public class MainActivity extends AppCompatActivity {
 
-    private GridView mGridView;
     private MovieAdapter mMovieAdapter;
-    MoviesInfo[] mMovies;
     private String mParm = "popular";
+    MoviesInfo[] mMovies;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mGridView = (GridView) findViewById(R.id.gridview);
+        GridView mGridView = findViewById(R.id.gridview);
         mGridView.setOnItemClickListener(moviePosterClickListener);
         mMovieAdapter = new MovieAdapter(this, mMovies);
         mGridView.setAdapter(mMovieAdapter);
@@ -32,20 +31,17 @@ public class MainActivity extends AppCompatActivity {
         loadMovieData();
     }
 
-    private final GridView.OnItemClickListener moviePosterClickListener = new GridView.OnItemClickListener() {
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            MoviesInfo movie = (MoviesInfo) parent.getItemAtPosition(position);
+    private final GridView.OnItemClickListener moviePosterClickListener = (parent, view, position, id) -> {
+        MoviesInfo movie = (MoviesInfo) parent.getItemAtPosition(position);
 
-            Intent intent = new Intent(getApplicationContext(), MovieDetails.class);
-            intent.putExtra("movie_title", movie.getTitle());
-            intent.putExtra("overview", movie.getOverview());
-            intent.putExtra("release", movie.getReleaseDate());
-            intent.putExtra("vote", movie.getVoteAverage());
-            intent.putExtra("poster", movie.getDetailMoviePoster());
+        Intent intent = new Intent(getApplicationContext(), MovieDetails.class);
+        intent.putExtra("movie_title", movie.getTitle());
+        intent.putExtra("overview", movie.getOverview());
+        intent.putExtra("release", movie.getReleaseDate());
+        intent.putExtra("vote", movie.getVoteAverage());
+        intent.putExtra("poster", movie.getDetailMoviePoster());
 
-            startActivity(intent);
-        }
+        startActivity(intent);
     };
 
     private void loadMovieData() {

@@ -4,7 +4,6 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.example.edgoo.popularmovies.MainActivity;
 import com.example.edgoo.popularmovies.MovieAdapter;
 
 import org.json.JSONException;
@@ -18,17 +17,12 @@ import static android.content.ContentValues.TAG;
 public class FetchMovieData extends AsyncTask<String, Void, MoviesInfo[]> {
 
 
-    private MovieAdapter mMovieAdapter;
-    private String mParm;
+    private final MovieAdapter mMovieAdapter;
+    private final String mParm;
 
     public FetchMovieData(MovieAdapter movieAdapter, String parm) {
         mMovieAdapter = movieAdapter;
         mParm = parm;
-    }
-
-    @Override
-    protected void onPreExecute() {
-        super.onPreExecute();
     }
 
     @Override
@@ -47,9 +41,8 @@ public class FetchMovieData extends AsyncTask<String, Void, MoviesInfo[]> {
             String jsonresponse = FetchJson.getResponseFromHttpUrl(movieUrl);
 
 //                PARES MOVIEDB URL
-            MoviesInfo[] movieTitles = ParseMoviedb.parseMovieJson(MainActivity.class, jsonresponse);
 
-            return movieTitles;
+            return ParseMoviedb.parseMovieJson(jsonresponse);
 
         } catch (JSONException e) {
             e.printStackTrace();

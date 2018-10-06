@@ -1,20 +1,12 @@
 package com.example.edgoo.popularmovies.Utilities;
 
-import android.util.Log;
-
-import com.example.edgoo.popularmovies.MainActivity;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.Arrays;
+class ParseMoviedb {
 
-import static android.content.ContentValues.TAG;
-
-public class ParseMoviedb {
-
-    public static MoviesInfo[] parseMovieJson(Class<MainActivity> context, String jsonResponse) throws JSONException {
+    public static MoviesInfo[] parseMovieJson(String jsonResponse) throws JSONException {
 
 //          CREATES JSON OBJECT WITH JSON STRING
         JSONObject mainJsonObject = new JSONObject(jsonResponse);
